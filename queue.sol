@@ -4,6 +4,7 @@ pragma AbiHeader expire;
 contract Queue {
    
     string [] public queue = ["Anton", "Ivan", "Oleg"];
+    bool flag = true;
 
     constructor() public {
        
@@ -18,12 +19,13 @@ contract Queue {
         }
     }
     function deleteName (uint index) public { // метод удаления первого элемента массива
+        
         if (queue.empty()) {
           for(uint i = 0; i < queue.length; i++){ // счетчик массива
             if (index == 1) { // если введенное число равно 1
                 delete queue[0]; // удаляем первый элемент массива
-              }
+            } else flag = false;
+          }
         }
-      }
     }
 }
